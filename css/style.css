@@ -1,0 +1,41 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.home-nav {
+	background: url("../img/home_header_bkgd.png") no-repeat 0;
+	max-width:1656px;
+	padding: 492px 153.5px;
+	margin-top: 0;
+}
+
+.wrapper {
+	width: 75%;
+	margin:0 auto;
+}
+
+.grid {
+	overflow: hidden;
+}
+	.col{
+		float: left;
+	}
+	.col-1-5 {
+		width: 20%;
+	}
+	.col-1-3 {
+		width: 33.3333%;
+	}
+	.col-2-3 {
+		width: 66.6666%;
+	}
+	.col-3-5 {
+		width: 60%;
+	}
+
+.module img {
+	max-width: 100%;
+	padding: 0px 5px 5px 0;
+}
