@@ -6,7 +6,7 @@
 
 .home-nav {
 	background: url("../img/home_header_bkgd.png") no-repeat 0;
-	max-width:1656px;
+	max-width:1140px;
 	padding: 492px 153.5px;
 	margin-top: 0;
 }
@@ -39,3 +39,16 @@
 	max-width: 100%;
 	padding: 0px 5px 5px 0;
 }
+
+.about-nav {
+
+}
+
+.about-nav li {
+	list-style-type: none;
+	display: inline;
+}
+
+.nav-bar li {
+	float: right;
+} 
