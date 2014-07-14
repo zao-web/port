@@ -1,5 +1,5 @@
 /*
-Theme Name: _s
+Theme Name: port
 Theme URI: http://underscores.me/
 Author: Underscores.me
 Author URI: http://underscores.me/
@@ -7,14 +7,14 @@ Description: Description
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: _s
+Text Domain: port
 Domain Path: /languages/
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- _s is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+ port is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -71,7 +71,7 @@ html {
 	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_textportize_inportafari_for_ios_without_disabling_user_zoom/ */
 }
 *,
 *:before,
@@ -81,7 +81,7 @@ html {
 	box-sizing:         border-box;
 }
 body {
-	background: #fff;
+	background: #fff; /* Fallback for when there is no custom background color defined. */
 }
 article,
 aside,
@@ -242,6 +242,9 @@ table {
 th {
 	font-weight: bold;
 }
+a {
+	text-decoration: none;
+}
 
 /*--------------------------------------------------------------
 4.0 Forms
@@ -253,14 +256,13 @@ textarea {
 	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
-	*vertical-align: middle; /* Improves appearance and consistency in IE6/IE7 */
 }
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid #ccc;
-	border-color: #ccc #ccc #bbb #ccc;
+	border: 1px solid;
+	border-color: #ccc #ccc #bbb; 
 	border-radius: 3px;
 	background: #e6e6e6;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
@@ -277,7 +279,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa #bbb;
+	border-color: #ccc #bbb #aaa;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
 }
 button:focus,
@@ -288,7 +290,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb #bbb;
+	border-color: #aaa #bbb #bbb;
 	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 input[type="checkbox"],
@@ -338,7 +340,7 @@ textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
-	width: 98%;
+	width: 100%;
 }
 
 /*--------------------------------------------------------------
@@ -374,7 +376,7 @@ a:active {
 	padding-left: 0;
 }
 .main-navigation li {
-	/*float: left;*/
+	float: left;
 	position: relative;
 }
 .main-navigation a {
@@ -383,15 +385,14 @@ a:active {
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-	display: none;
 	float: left;
-	left: 0;
 	position: absolute;
 	top: 1.5em;
+	left: -999em;
 	z-index: 99999;
 }
 .main-navigation ul ul ul {
-	left: 100%;
+	left: -999em;
 	top: 0;
 }
 .main-navigation ul ul a {
@@ -406,13 +407,18 @@ a:active {
 .main-navigation ul ul a:hover {
 }
 .main-navigation ul li:hover > ul {
-	display: block;
+	left: auto;
+}
+.main-navigation ul ul li:hover > ul {
+	left: 100%;
 }
 .main-navigation .current_page_item a,
 .main-navigation .current-menu-item a {
 }
 /* Small menu */
-
+.menu-toggle {
+	display: none;
+}
 @media screen and (max-width: 600px) {
 	.menu-toggle,
 	.main-navigation.toggled .nav-menu {
@@ -443,13 +449,6 @@ a:active {
 	width: 50%;
 }
 
-h1#logo {
-    background-image: url ( img/logo-white.png );
-    text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
 /*--------------------------------------------------------------
 6.0 Accessibility
 --------------------------------------------------------------*/
@@ -457,6 +456,9 @@ h1#logo {
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
 }
 
 .screen-reader-text:hover,
@@ -540,7 +542,7 @@ h1#logo {
 }
 
 /* Search widget */
-.widget_search .search-submit {
+.widgetportearch .search-submit {
 	display: none;
 }
 
@@ -676,3 +678,126 @@ object {
 	max-width: 11.11%;
 }
 .gallery-caption {}
+
+/*--------------------------------------------------------------
+14 Custom CSS
+--------------------------------------------------------------*/
+.site-title {
+	display: none;
+}
+header {
+	position: relative;
+	margin-top: 0;
+}
+#logo {
+	position: absolute;
+	z-index: 5;
+	left: 18.9%;
+	top: 5%;
+}
+.social-media {
+	position: absolute;
+	z-index: 5;
+	left: 18.9%;
+	bottom: 7%;
+}
+.dashicons {
+	color: #fff;
+	margin-right: 7px;
+}
+footer {
+	width: 70px;
+	margin: 5% auto 3%;
+}
+/*--------------------------------------------------------------
+14.1 Front-Page
+--------------------------------------------------------------*/
+.wrapper {
+	width: 1000px;
+	margin:5% auto 0;
+}
+.grid {
+	overflow: hidden;
+}
+	.col{
+		float: left;
+	}
+	.col-1-5 {
+		width: 20%;
+	}
+	.col-1-3 {
+		width: 33.3333%;
+	}
+	.col-2-5 {
+		width: 40%;
+	}
+	.col-2-3 {
+		width: 66.6666%;
+	}
+	.col-3-5 {
+		width: 60%;
+	}
+
+.module img {
+	width: 100%;
+	height: 100%;
+	padding: 3px;
+}
+#img-1 {
+	height: 440px;
+	width: 200px;
+}
+#img-2,
+#img-3,
+#img-4,
+#img-5 {
+	height: 240px;
+	width: 200px;
+}
+#img-6 {
+	height: 200px;
+	width: 200px;
+}
+#img-7 {
+	height: 200px;
+	width: 600px;
+}
+#img-8 {
+	height: 395px;
+	width: 333.33px;
+}
+#img-9 {
+	height: 395px;
+	width: 666.67px;
+}
+#img-10 {
+	height: 194px;
+	width: 333.33px;
+}
+#img-11 {
+	height: 194px;
+	width: 333.33px;
+}
+#img-12,
+#img-13 {
+	height: 388px;
+	width: 333.33px;
+}
+#img-14 {
+	height: 200px;
+	width: 600px;
+}
+#img-15,
+#img-18 {
+	height: 400px;
+	width: 400px;
+}
+#img-16,
+#img-17 {
+	height: 200px;
+	width: 200px;
+}
+#img-19 {
+	height: 200px;
+	width: 400px;
+}

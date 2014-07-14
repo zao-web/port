@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package _s
+ * @package port
  */
 ?>
 
@@ -12,9 +12,7 @@
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', '_s' ) ); ?>"><?php printf( __( 'Proudly powered by %s', '_s' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', '_s' ), '_s', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<img id="footer-logo" src="<?php echo get_stylesheet_directory_uri() . '/img/logo2-black.png'; ?>" alt="Port LBC Logo" />
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

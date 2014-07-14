@@ -1,10 +1,10 @@
 <?php
 /**
- * The Header for our theme.
+ * The header for our theme.
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package _s
+ * @package port
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -20,15 +20,29 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'port' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="<?php bloginfo( 'name' ); ?>" /></a></h1>
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
 		</div>
 
+		<?php if( is_page( 'home' )) : ?>
+
+				<div class="home-hero">
+					<img src="<?php the_field( 'hero_image_1' ); ?>" />
+				</div><!-- .home-image -->
+
+		<?php endif; ?>
+
+		<div class="social-media">
+			<a href="https://www.facebook.com/portlbc"><div class="dashicons dashicons-facebook-alt"></div></a>
+			<a href="http://instagram.com/portlbc"><img src="<?php echo get_stylesheet_directory_uri() . '/img/instagram.png'; ?>" alt="Instagram Icon" /></a>
+		</div><!-- .social-media -->
+
 		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<img class="menu-toggle" src="<?php echo get_stylesheet_directory_uri() . '/img/menu.png'; ?>" alt="<?php _e( 'Primary Menu', '_s' ); ?>" />
-			
+			<button class="menu-toggle"><?php _e( 'Primary Menu', 'port' ); ?><img src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" /></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
