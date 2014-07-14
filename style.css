@@ -352,16 +352,12 @@ textarea {
 /*--------------------------------------------------------------
 5.1 Links
 --------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-a:visited {
-	color: purple;
-}
+a,
+a:visited,
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #000;
 }
 
 /*--------------------------------------------------------------
@@ -709,8 +705,17 @@ header {
 	margin-right: 7px;
 }
 footer {
-	width: 70px;
+	width: 100px;
 	margin: 5% auto 3%;
+}
+img#footer-logo {
+	padding: 0 0 3% 15%;
+
+}
+p.email {
+	font-style: italic;
+	font-size: 12px;
+	font-size: 1.2rem;
 }
 /*--------------------------------------------------------------
 14.1 Front-Page
