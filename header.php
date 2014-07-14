@@ -25,21 +25,27 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			
+		<?php if( is_page( 'home' )) : ?>
 			<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
+		<?php else: ?>
+			<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
+		<?php endif; ?>
+
 		</div>
 
 		<?php if( is_page( 'home' )) : ?>
 
-				<div class="home-hero">
-					<img src="<?php the_field( 'hero_image_1' ); ?>" />
-				</div><!-- .home-image -->
+			<div class="home-hero">
+				<img src="<?php the_field( 'hero_image_1' ); ?>" />
+			</div><!-- .home-image -->
+
+			<div class="social-media">
+				<a href="https://www.facebook.com/portlbc"><div class="dashicons dashicons-facebook-alt"></div></a>
+				<a href="http://instagram.com/portlbc"><img src="<?php echo get_stylesheet_directory_uri() . '/img/instagram.png'; ?>" alt="Instagram Icon" /></a>
+			</div><!-- .social-media -->
 
 		<?php endif; ?>
-
-		<div class="social-media">
-			<a href="https://www.facebook.com/portlbc"><div class="dashicons dashicons-facebook-alt"></div></a>
-			<a href="http://instagram.com/portlbc"><img src="<?php echo get_stylesheet_directory_uri() . '/img/instagram.png'; ?>" alt="Instagram Icon" /></a>
-		</div><!-- .social-media -->
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Primary Menu', 'port' ); ?><img src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" /></button>
