@@ -1,6 +1,6 @@
 <?php
 /**
- * Template: News Page
+ * Template Name: News Page
  *
  * Description: This page displays all the featured blog post and the previous and next blog posts.
  *
