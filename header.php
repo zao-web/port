@@ -15,6 +15,18 @@
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 
+<?php 
+	global $post;
+
+	$category = array (
+		'theme_location' 	=> 'category',
+		'menu' 				=> 'Categories Menu',
+		'container'			=> 'div',
+		'container_class'	=> 'category-nav',
+		'items_wrap'      	=> '<ul id="%1$s" class="%2$s">%3$s</ul>'
+	);
+?>
+
 <?php wp_head(); ?>
 </head>
 
@@ -50,6 +62,10 @@
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<button class="menu-toggle"><?php _e( 'Primary Menu', 'port' ); ?><img src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" /></button>
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			
+			<?php if ( is_page( 'shop' ) || '36' == $post->post_parent ) {
+				wp_nav_menu( $category );
+			} ?>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
