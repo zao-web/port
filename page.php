@@ -20,13 +20,15 @@ get_header(); ?>
 				if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 				  the_post_thumbnail( 'full' );
 				} ?>
+
+			</div><!-- .featured-image -->
+				
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'content', 'page' ); ?>
 
 				<?php endwhile; // end of the loop. ?>
 
-			</div><!-- .featured-image -->
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
