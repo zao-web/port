@@ -131,12 +131,10 @@ function port_module( $number ) { ?>
 			
 			if ( ! empty( $link ) &&  ! empty( $tag ) ) { ?>
 
-			<a href="<?php echo esc_url( $link ); ?>">
+			<a class="overlay" href="<?php echo esc_url( $link ); ?>">
 				<?php 
-					echo '<span class="overlay">';
-						echo '<p class="tagline">' . esc_html( $tag ) . '</span>';
-						echo '<p class="italics">Shop Now</p>';
-					echo '</span>';
+					echo '<p class="tagline">' . esc_html( $tag ) . '</p>';
+					echo '<p class="cta italics">Shop Now</p>';
 				?>
 			</a>
 		
