@@ -115,6 +115,37 @@ add_action( 'wp_enqueue_scripts', 'port_scripts' );
  */
 //require get_template_directory() . '/inc/custom-header.php';
 
+
+function port_module( $number ) { ?>
+
+	<div class="module" id="img-<?php echo absint( $number ); ?>">
+		 
+		<?php $image = get_field( 'image_' . $number ); ?>
+
+		<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+
+		<?php
+ 
+			$link = get_field( 'image_' . $number . '_link' );
+			$tag = get_field( 'image_' . $number . '_tagline');
+			
+			if ( ! empty( $link ) &&  ! empty( $tag ) ) { ?>
+
+			<a href="<?php echo esc_url( $link ); ?>">
+				<?php 
+					echo '<span class="overlay">';
+						echo '<p class="tagline">' . esc_html( $tag ) . '</span>';
+						echo '<p class="italics">Shop Now</p>';
+					echo '</span>';
+				?>
+			</a>
+		
+		<?php } ?>
+		
+	</div>
+	<?php
+}
+
 /**
  * Custom template tags for this theme.
  */
