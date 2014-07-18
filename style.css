@@ -787,7 +787,6 @@ p.italics {
 }
 .overlay {
 	position: absolute;
-	background: #fff;
 	text-align: center;
 	z-index: 10;
 	top: 10px;
@@ -796,6 +795,15 @@ p.italics {
 	bottom: 10px;
 	overflow: hidden;
 	opacity: 0;	
+}
+.overlay:before {
+  content:'';
+  position:absolute;
+  left:10px;
+  right:10px;
+  bottom:50%;
+  height:1px;
+  box-shadow:0 0 0 100vw #fff;
 }
 .tagline,
 .cta {
@@ -806,11 +814,10 @@ p.italics {
 }
 .tagline {
 	font-weight: bold;
-	border-bottom: 2px solid black;
 	bottom: 42%;
 }
 .cta {
-	top:75%;
+	top:70%;
 }
 .overlay:hover .tagline,
 .overlay:hover .cta,
