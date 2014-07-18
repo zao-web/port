@@ -367,13 +367,10 @@ a:active {
 .category-nav {
 	clear: both;
 	display: block;
-	float: left;
 	width: 100%;
 }
-.main-nav {
-	margin: 2% 0;
-}
 .category-nav {
+	float: left;
 	margin-top: 2%;
 	padding: 1% 0;
 	background: url('img/nav_bar.png');
@@ -389,7 +386,6 @@ a:active {
 	margin: 0 auto;
 }
 .main-navigation li {
-	float: left;
 	position: relative;
 }
 .category-nav li {
