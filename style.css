@@ -712,11 +712,18 @@ header {
 	position: relative;
 	margin-top: 0;
 }
-#logo {
+#logo,
+#slider-btn {
 	position: absolute;
 	z-index: 5;
-	left: 18.9%;
 	top: 5%;
+}
+#logo {
+	left: 18.9%;
+}
+#slider-btn {
+	right:18.9%;
+	cursor: pointer;
 }
 .social-media {
 	position: absolute;
