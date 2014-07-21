@@ -16,6 +16,7 @@
 			<a href="mailto:info@portlbc.com"><p class="italics">info@portlbc.com</p></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
+	<div id="page-overlay"></div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

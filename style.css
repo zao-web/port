@@ -73,6 +73,11 @@ html {
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_textportize_inportafari_for_ios_without_disabling_user_zoom/ */
 }
+html, 
+body {
+	height: 100%;
+	width: 100%;
+}
 *,
 *:before,
 *:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
@@ -141,11 +146,10 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
-p {
+p, a {
 	font-family: "Roboto", sans-serif;
 	font-size: 14px;
 	font-size: 1.4rem;
-	margin-bottom: 1.5em;
 }
 b, strong {
 	font-weight: bold;
@@ -375,7 +379,20 @@ a:active {
 	padding: 1% 0;
 	background: url('img/nav_bar.png');
 }
-.main-navigation ul,
+.main-navigation {
+	position: relative;
+}
+.menu-main-menu-container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	width: 62.1994%;
+	z-index: 1000;
+}
+.menu-main-menu-container ul,
 .category-nav ul {
 	list-style: none;
 	margin: 0;
@@ -385,8 +402,14 @@ a:active {
 	width: 62%;
 	margin: 0 auto;
 }
-.main-navigation li {
+.menu-main-menu-container li {
 	position: relative;
+	border: 3px solid transparent;
+	text-align: center;
+	padding: 5% 0;
+}
+.menu-main-menu-container li:hover {
+	border: 3px solid #fff;
 }
 .category-nav li {
 	margin-right: 3%;
@@ -394,13 +417,15 @@ a:active {
 .category-nav li:last-child {
 	margin-left: 4%;
 }
-.main-navigation a,
+.menu-main-menu-container a,
 .category-nav a {
 	display: block;
 	text-decoration: none;
-}
-.category-nav a {
 	color: #fff;
+}
+.menu-main-menu-container a {
+	font-size: 30px;
+	font-size: 3rem;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -711,7 +736,7 @@ header {
 #logo,
 #slider-btn {
 	position: absolute;
-	z-index: 5;
+	z-index: 1000;
 	top: 5%;
 }
 #logo {
@@ -729,7 +754,7 @@ header {
 }
 .dashicons {
 	color: #fff;
-	margin-right: 7px;
+	margin-right: 10px;
 }
 footer {
 	width: 100px;
@@ -744,6 +769,17 @@ p.italics {
 	font-family: "Georgia", cursive;
 	font-size: 12px;
 	font-size: 1.2rem;
+}
+#page-overlay {
+	width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    background: rgba(0, 0, 0, 0.9); 
+    display: none;
+    text-align: center;
 }
 /*--------------------------------------------------------------
 14.1 Front-Page

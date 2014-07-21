@@ -38,13 +38,15 @@
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			
-		<?php if( is_front_page() || is_page( 'news' )) : ?>
-			<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
-		<?php else: ?>
-			<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
-		<?php endif; ?>
+			<?php if( is_front_page() || is_page( 'news' )) : ?>
+				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
+			<?php else: ?>
+				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
+			<?php endif; ?>
 
-		</div>
+		</div><!--.site-branding -->
+
+		<nav id="site-navigation" class="main-navigation" role="navigation">
 
 		<?php if( is_page( 'home' )) : ?>
 
@@ -58,12 +60,11 @@
 			</div><!-- .social-media -->
 
 		<?php endif; ?>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'port' ); ?><img src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" /></button>
+		
+			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			
-			<?php if ( is_page( 'shop' ) || '36' == $post->post_parent ) {
+			<?php if ( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) {
 				wp_nav_menu( $category );
 			} ?>
 		</nav><!-- #site-navigation -->
