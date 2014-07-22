@@ -391,6 +391,7 @@ a:active {
 	transform: translate(-50%, -50%);
 	width: 62.1994%;
 	z-index: 1000;
+	display: none;
 }
 .menu-main-menu-container ul,
 .category-nav ul {
@@ -778,8 +779,8 @@ p.italics {
     left: 0;
     z-index: 900;
     background: rgba(0, 0, 0, 0.9); 
-    display: none;
     text-align: center;
+    display: none;
 }
 /*--------------------------------------------------------------
 14.1 Front-Page
@@ -921,7 +922,7 @@ p.italics {
 --------------------------------------------------------------*/
 .static-featured-image {
 	position: relative;
-	width: 850px;
+	width: 840px;
 	margin: 5% auto 2%;
 }
 .static-entry-header {
