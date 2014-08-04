@@ -37,7 +37,6 @@ Author URI: http://instinct.co.nz
 #default_products_page_container .imagecol img, #list_view_products_page_container img, #grid_view_products_page_container img {
 	margin:0;
 	padding:0;
-	border:1px solid #ccc;
 }
 
 .wpsc_hidden{
@@ -95,7 +94,7 @@ Author URI: http://instinct.co.nz
 .default_product_display .imagecol {
 
 	text-align: right;
-	display: table-cell;
+	/*display: table-cell;*/
 	vertical-align: middle;
 	min-height: 50px;
 	height: 100%;
@@ -104,7 +103,7 @@ Author URI: http://instinct.co.nz
 }
 
 .default_product_display .imagecol img.product_image {
-	background-color:#efefef;
+	/*background-color:#efefef;*/
 }
 
 .default_product_display .imagecol img.no-image, #content .default_product_display .imagecol img.no-image {
@@ -201,7 +200,6 @@ Author URI: http://instinct.co.nz
 }
 
 .default_product_display .wpsc_variation_forms label {
-	font-family: Georgia, "Bitstream Charter", serif;
 	font-size:14px;
 	color:#000
 }
@@ -226,7 +224,6 @@ Author URI: http://instinct.co.nz
 
 
 .default_product_display .wpsc_quantity_update label, #content .default_product_display .wpsc_quantity_update label {
-	font-family: Georgia, "Bitstream Charter", serif;
 	margin:0;
 	line-height:1.2em;
 	font-size:12px;
@@ -541,7 +538,6 @@ table.list_productdisplay p.soldout {
 
 
 .single_product_display .wpsc_quantity_update label, #content .single_product_display .wpsc_quantity_update label {
-	font-family: Georgia, "Bitstream Charter", serif;
 	margin:0;
 	line-height:1.2em;
 	font-size:12px;
@@ -717,7 +713,6 @@ span.rating_saved{
 }
 
 .shopping-cart-wrapper .shoppingcart table th {
-	font-family: Arial, sans-serif;
 	padding:2px;
 }
 
@@ -1090,7 +1085,6 @@ background-color: #f5f5f5;
 
 .item_text h2 a{
     color: #000000;
-    font-family: Arial,sans-serif;
     font-weight: bold;
     text-decoration: none;
 }
