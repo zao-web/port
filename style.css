@@ -742,6 +742,7 @@ object {
 header {
 	position: relative;
 	margin-top: 0;
+	top: 0;
 }
 #logo,
 #slider-btn {
@@ -755,6 +756,9 @@ header {
 #slider-btn {
 	right:18.9%;
 	cursor: pointer;
+}
+.entry-header {
+	display: none;
 }
 .social-media {
 	position: absolute;
