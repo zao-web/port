@@ -147,6 +147,15 @@ function port_module( $number ) { ?>
 }
 
 /**
+* Hide/Remove Decimal Point on Product Price by http://www.agusmu.com
+**/
+	add_filter( 'wpsc_toggle_display_currency_code', 'amu_hide_decimal_point' );
+	function amu_hide_decimal_point( $args ) {
+		$args['display_decimal_point'] = false;
+		return $args;
+	}
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';

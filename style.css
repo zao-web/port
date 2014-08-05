@@ -146,8 +146,10 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
-p, a {
+h1, h2, h3, h4, h5, h6, p, a {
 	font-family: "Roboto", sans-serif;
+}
+p, a {
 	font-size: 14px;
 	font-size: 1.4rem;
 }
@@ -205,7 +207,13 @@ small {
 big {
 	font-size: 125%;
 }
-
+.wpsc_product_title {
+	font-weight: bold;
+}
+.pricedisplay {
+	font-family: Georgia, serif;
+	font-style: italic;
+}
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
@@ -378,6 +386,7 @@ a:active {
 	margin-top: 2%;
 	padding: 1% 0;
 	background: url('img/nav_bar.png');
+	background-size: cover;
 }
 .main-navigation {
 	position: relative;
@@ -830,13 +839,13 @@ p.italics {
 	opacity: 0;	
 }
 .overlay:before {
-  content:'';
-  position:absolute;
-  left:10px;
-  right:10px;
-  bottom:50%;
-  height:1px;
-  box-shadow:0 0 0 100vw #fff;
+  	content:'';
+  	position:absolute;
+  	left:10px;
+  	right:10px;
+ 	bottom:50%;
+  	height:1px;
+  	box-shadow:0 0 0 100vw #fff;
 }
 .tagline,
 .cta {
@@ -847,7 +856,7 @@ p.italics {
 }
 .tagline {
 	font-weight: bold;
-	bottom: 42%;
+	bottom: 52%;
 }
 .cta {
 	top:70%;
@@ -942,4 +951,64 @@ article.static {
 }
 .static-entry-content {
 	padding: 11% 16%;
+}
+/*--------------------------------------------------------------
+14.2 Shop Page
+--------------------------------------------------------------*/
+#default_products_page_container {
+	margin-left: 18.9%;
+	margin-right: 18.9%;
+	width: 62.2%;
+}
+.default_product_display {
+	float: left;
+	width: 18%;
+	padding: 0;
+	text-align: center;
+	margin-right: 2%
+}
+.default_product_display:nth-of-type(5n+1) {
+	clear: left;
+	margin-left: 0;
+}
+.product-overlay {
+	position: absolute;
+	text-align: center;
+	z-index: 100;
+	width: 100%;
+	height: 40%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	opacity: 0;
+}
+.product-overlay:before {
+	content:'';
+  	position:absolute;
+  	left:10px;
+  	right:10px;
+  	bottom:50%;
+ 	height:1px;
+  	box-shadow:0 0 0 100vw #fff;
+}
+.wpsc_product_title,
+.pricedisplay {
+	position: absolute;
+	left: 10px;
+	right: 10px;
+	opacity: 0;
+}
+.wpsc_product_title {
+	bottom: 55%;
+}
+.pricedisplay {
+	top:63%;
+}
+.product-overlay:hover .wpsc_product_title,
+.product-overlay:hover .pricedisplay,
+.product-overlay:hover {
+	opacity: 1;
+	-webkit-transition: .5s;
+	transition: .5s;
 }
