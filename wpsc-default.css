@@ -312,12 +312,6 @@ Author URI: http://instinct.co.nz
 	border:1px solid #ccc;
 }
 
-.wpcart_gallery .attachment-gold-thumbnails, .imagecol .product_image{
-	cursor: -webkit-zoom-in;
-	cursor: -moz-zoom-in;
-}
-
-
 .single_product_display form.product_form .wpsc_buy_button_container,
 #content .single_product_display form.product_form .wpsc_buy_button_container{
 	text-align: right;
