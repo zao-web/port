@@ -439,11 +439,6 @@ table.list_productdisplay p.soldout {
 	position:relative;
 }
 
-.single_product_display .imagecol img.product_image {
-	background-color:#efefef;
-	border:1px solid #ccc;
-}
-
 .single_product_display .imagecol img.no-image, #content .single_product_display .imagecol img.no-image {
 	background-color:#EFEFEF;
 	display:block;
