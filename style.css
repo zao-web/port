@@ -417,10 +417,15 @@ a:active {
 .category-nav li {
 	float: left;
 	margin-right: 5%;
+	border: 1px solid transparent;
+	padding: 2px 5px;
 }
 .category-nav li:last-child {
 	float: right;
 	margin-right: 0;
+}
+.category-nav li:hover {
+	border: 1px solid #fff;
 }
 .menu-main-menu-container a,
 .category-nav a {
@@ -1015,7 +1020,8 @@ article.static {
 /*--------------------------------------------------------------
 14.3 Single Product Page
 --------------------------------------------------------------*/
-.single-wpsc-product .featured-image {
+.single-wpsc-product .featured-image,
+.tax-wpsc_product_category .featured-image {
 	display: none;
 }
 #single_product_page_container {
