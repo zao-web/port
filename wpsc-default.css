@@ -358,10 +358,6 @@ table.list_productdisplay .quantity_container {
 	display:inline;
 }
 
-#content input.wpsc_buy_button{
-	font-size: 12px;
-}
-
 table.list_productdisplay .wpsc_buy_button_container {
 	display:inline;
 	position:relative;
@@ -427,14 +423,10 @@ table.list_productdisplay p.soldout {
 }
 
 .single_product_display {
-	margin-bottom:20px;
-	padding:10px;
 	position:relative;
 }
 
 .imagecol {
-	margin-right:5px;
-/* 	width:25%; */
 	float:left;
 	position:relative;
 }
@@ -443,7 +435,6 @@ table.list_productdisplay p.soldout {
 	background-color:#EFEFEF;
 	display:block;
 }
-
 
 .single_product_display .product_description, .single_product_display .single_additional_description {
 	font-size:14px;
@@ -464,9 +455,6 @@ table.list_productdisplay p.soldout {
 }
 
 .single_product_display form.product_form input, #content .single_product_display form.product_form input {
-	padding:2px;
-	margin:0;
-
 	line-height:1.2em;
 	font-size:14px;
 }

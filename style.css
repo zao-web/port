@@ -214,6 +214,19 @@ big {
 	font-family: Georgia, serif;
 	font-style: italic;
 }
+.productheader .prodtitle,
+.productheader .pricedisplay {
+	font-size: 30px;
+	font-size: 3rem;
+}
+.productheader .prodtitle,
+.product_description .details {
+	font-weight: bold;
+}
+.product_description p {
+	font-family: Georgia, serif;
+}
+
 /*--------------------------------------------------------------
 3.0 Elements
 --------------------------------------------------------------*/
@@ -276,37 +289,17 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb; 
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, .8);
+	background: #000;
+	border: none;
+	box-shadow: none;
+	color: #fff;
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
 	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
-	line-height: 1;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1.2em;
 	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
-button:hover,
-input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-button:focus,
-input[type="button"]:focus,
-input[type="reset"]:focus,
-input[type="submit"]:focus,
-button:active,
-input[type="button"]:active,
-input[type="reset"]:active,
-input[type="submit"]:active {
-	border-color: #aaa #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+	text-transform: uppercase;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -998,17 +991,17 @@ article.static {
  	height:1px;
   	box-shadow:0 0 0 100vw #fff;
 }
-.wpsc_product_title,
-.pricedisplay {
+.product-overlay .wpsc_product_title,
+.product-overlay .pricedisplay {
 	position: absolute;
 	left: 10px;
 	right: 10px;
 	opacity: 0;
 }
-.wpsc_product_title {
+.product-overlay .wpsc_product_title {
 	bottom: 55%;
 }
-.pricedisplay {
+.product-overlay .pricedisplay {
 	top:63%;
 }
 .product-overlay:hover .wpsc_product_title,
@@ -1026,5 +1019,39 @@ article.static {
 	display: none;
 }
 #single_product_page_container {
-	margin: 0 18.9%; 
+	margin: 1% 18.9%; 
+}
+.single_product_display .imagecol {
+	margin-right: 7%;
+	width: 40%
+}
+.single_product_display .productcol {
+	float: left;
+	width: 53%;
+}
+.productheader .prodtitle,
+.productheader .pricedisplay {
+	display: inline-block;
+}
+.productheader .pricedisplay {
+	float: right;
+}
+.productheader .skudisplay {
+	float: left;
+	width: 100%;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #000;
+}
+.wpsc_buy_button_container input[type="submit"],
+.wpsc_buy_button_container input[type="submit"]:hover {
+	float: left;
+	width: 100%;
+	margin: 5% 0 2%;
+	padding: 3% 0;
+	text-transform: uppercase;
+}
+.product_description .details {
+	padding: 1% 0;
+	border-bottom: 1px solid #000;
+	margin-bottom: 3%;
 }

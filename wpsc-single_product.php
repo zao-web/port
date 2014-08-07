@@ -44,30 +44,20 @@
 					</div><!--close imagecol-->
 
 					<div class="productcol">
-						<?php do_action('wpsc_product_before_description', wpsc_the_product_id(), $wp_query->post); ?>
-						<div class="product_description">
-							<?php echo wpsc_the_product_description(); ?>
-						</div><!--close product_description -->
-						<?php do_action( 'wpsc_product_addons', wpsc_the_product_id() ); ?>
-						<?php if ( wpsc_the_product_additional_description() ) : ?>
-							<div class="single_additional_description">
-								<p><?php echo wpsc_the_product_additional_description(); ?></p>
-							</div><!--close single_additional_description-->
-						<?php endif; ?>
-						<?php do_action( 'wpsc_product_addon_after_descr', wpsc_the_product_id() ); ?>
-						<?php
-						/**
-						 * Custom meta HTML and loop
-						 */
-						?>
-                        <?php if (wpsc_have_custom_meta()) : ?>
-						<div class="custom_meta">
-							<?php while ( wpsc_have_custom_meta() ) : wpsc_the_custom_meta(); ?>
-								<?php if (stripos(wpsc_custom_meta_name(),'g:') !== FALSE) continue; ?>
-								<strong><?php echo wpsc_custom_meta_name(); ?>: </strong><?php echo wpsc_custom_meta_value(); ?><br />
-							<?php endwhile; ?>
-						</div><!--close custom_meta-->
-                        <?php endif; ?>
+						<div class="productheader group">
+							<h2 class="prodtitle entry-title">
+								<?php echo wpsc_the_product_title(); ?>
+							</h2>
+
+							<h3 class="pricedisplay product_<?php echo wpsc_the_product_id(); ?>">
+								<?php echo wpsc_the_product_price(); ?>
+							</h3>
+
+							<p class="skudisplay product_<?php echo wpsc_the_product_id(); ?>">	
+								<?php echo wpsc_product_sku(wpsc_the_product_id()); ?>
+							</p>
+						</div>								
+						
 						<?php
 						/**
 						 * Form data
@@ -127,29 +117,7 @@
                                 </div><!--close wpsc_quantity_update-->
                                 </fieldset>
 							<?php endif ;?>
-							<div class="wpsc_product_price">
-								<?php if(wpsc_show_stock_availability()): ?>
-									<?php if(wpsc_product_has_stock()) : ?>
-										<div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="in_stock"><?php _e('Product in stock', 'wpsc'); ?></div>
-									<?php else: ?>
-										<div id="stock_display_<?php echo wpsc_the_product_id(); ?>" class="out_of_stock"><?php _e('Product not in stock', 'wpsc'); ?></div>
-									<?php endif; ?>
-								<?php endif; ?>
-								<?php if(wpsc_product_is_donation()) : ?>
-									<label for="donation_price_<?php echo wpsc_the_product_id(); ?>"><?php _e('Donation', 'wpsc'); ?>: </label>
-									<input type="text" id="donation_price_<?php echo wpsc_the_product_id(); ?>" name="donation_price" value="<?php echo wpsc_calculate_price(wpsc_the_product_id()); ?>" size="6" />
-								<?php else : ?>
-									<?php wpsc_the_product_price_display(); ?>
-									 <!-- multi currency code -->
-                                    <?php if(wpsc_product_has_multicurrency()) : ?>
-	                                    <?php echo wpsc_display_product_multicurrency(); ?>
-                                    <?php endif; ?>
-									<?php if(wpsc_show_pnp()) : ?>
-										<p class="pricedisplay"><?php _e('Shipping', 'wpsc'); ?>:<span class="pp_price"><?php echo wpsc_product_postage_and_packaging(); ?></span></p>
-									<?php endif; ?>
-								<?php endif; ?>
-							</div><!--close wpsc_product_price-->
-
+							
 							<!-- ShareThis -->
 							<?php if ( get_option( 'wpsc_share_this' ) == 1 ): ?>
 							<div class="st_sharethis" displayText="ShareThis"></div>
@@ -175,7 +143,7 @@
 											<?php $action = wpsc_product_external_link( wpsc_the_product_id() ); ?>
 											<input class="wpsc_buy_button" type="submit" value="<?php echo wpsc_product_external_link_text( wpsc_the_product_id(), __( 'Buy Now', 'wpsc' ) ); ?>" onclick="return gotoexternallink('<?php echo esc_url( $action ); ?>', '<?php echo wpsc_product_external_link_target( wpsc_the_product_id() ); ?>')">
 											<?php else: ?>
-										<input type="submit" value="<?php _e('Add To Cart', 'wpsc'); ?>" name="Buy" class="wpsc_buy_button" id="product_<?php echo wpsc_the_product_id(); ?>_submit_button"/>
+										<input type="submit" value="<?php _e('Add To Bag', 'wpsc'); ?>" name="Buy" class="wpsc_buy_button" id="product_<?php echo wpsc_the_product_id(); ?>_submit_button"/>
 											<?php endif; ?>
 										<div class="wpsc_loading_animation">
 											<img title="Loading" alt="Loading" src="<?php echo wpsc_loading_animation_url(); ?>" />
@@ -202,6 +170,39 @@
 	                        <iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo wpsc_the_product_permalink(); ?>&amp;layout=standard&amp;show_faces=true&amp;width=435&amp;action=like&amp;font=arial&amp;colorscheme=light" frameborder="0"></iframe>
 	                        </div><!--close FB_like-->
                         <?php endif; ?>
+
+
+						<?php
+						/**
+						 * Product Description
+						 */
+						?>
+                        <?php do_action('wpsc_product_before_description', wpsc_the_product_id(), $wp_query->post); ?>
+						<div class="product_description">
+							<h4 class="details">Details</h4>
+							<?php echo wpsc_the_product_description(); ?>
+						</div><!--close product_description -->
+						<?php do_action( 'wpsc_product_addons', wpsc_the_product_id() ); ?>
+						<?php if ( wpsc_the_product_additional_description() ) : ?>
+							<div class="single_additional_description">
+								<p><?php echo wpsc_the_product_additional_description(); ?></p>
+							</div><!--close single_additional_description-->
+						<?php endif; ?>
+						<?php do_action( 'wpsc_product_addon_after_descr', wpsc_the_product_id() ); ?>
+						<?php
+						/**
+						 * Custom meta HTML and loop
+						 */
+						?>
+                        <?php if (wpsc_have_custom_meta()) : ?>
+						<div class="custom_meta">
+							<?php while ( wpsc_have_custom_meta() ) : wpsc_the_custom_meta(); ?>
+								<?php if (stripos(wpsc_custom_meta_name(),'g:') !== FALSE) continue; ?>
+								<strong><?php echo wpsc_custom_meta_name(); ?>: </strong><?php echo wpsc_custom_meta_value(); ?><br />
+							<?php endwhile; ?>
+						</div><!--close custom_meta-->
+                        <?php endif; ?>
+						
 					</div><!--close productcol-->
 					<form onsubmit="submitform(this);return false;" action="<?php echo esc_url( wpsc_this_page_url() ); ?>" method="post" name="product_<?php echo wpsc_the_product_id(); ?>" id="product_extra_<?php echo wpsc_the_product_id(); ?>">
 						<input type="hidden" value="<?php echo wpsc_the_product_id(); ?>" name="prodid"/>
