@@ -38,7 +38,7 @@
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			
-			<?php if( is_front_page() || is_page( 'news' )) : ?>
+			<?php if( is_front_page() || is_home() || is_single() ) : ?>
 				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
 			<?php else: ?>
 				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
@@ -48,7 +48,7 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 
-		<?php if( is_page( 'home' )) : ?>
+		<?php if( is_page( 'home' ) ) : ?>
 
 			<div class="home-hero">
 				<img src="<?php the_field( 'hero_image_1' ); ?>" />
@@ -60,7 +60,7 @@
 			</div><!-- .social-media -->
 		<?php endif; ?>
 		
-		<?php if( is_front_page() || is_page( 'news' )) : ?>
+		<?php if( is_front_page() || is_home() || is_single() ) : ?>
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
 		<?php else: ?>	
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
