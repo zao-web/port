@@ -10,21 +10,19 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
+			<div class="featured-image">
+				<?php 
+				if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+				  the_post_thumbnail( 'full' );
+				} ?>
+
+			</div><!-- .featured-image -->
+
 			<?php get_template_part( 'content', 'single' ); ?>
 
 			<?php port_post_nav(); ?>
 
-			<?php
-				// If comments are open or we have at least one comment, load up the comment template
-				if ( comments_open() || '0' != get_comments_number() ) :
-					comments_template();
-				endif;
-			?>
-
-		<?php endwhile; // end of the loop. ?>
-
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
