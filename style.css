@@ -757,7 +757,7 @@ header {
 	right:18.9%;
 	cursor: pointer;
 }
-.entry-header {
+.home .entry-header {
 	display: none;
 }
 .social-media {
@@ -1060,4 +1060,23 @@ article.static {
 	padding: 1% 0;
 	border-bottom: 1px solid #000;
 	margin-bottom: 3%;
+}
+
+/*--------------------------------------------------------------
+14.4 News Page
+--------------------------------------------------------------*/
+.blog .featured-image {
+	margin-bottom: 3%;
+}
+.blog article {
+	margin-left: 18.9%;
+	margin-right: 18.9%;
+}
+.blog .entry-title a {
+	font-size: 32px;
+	font-size: 3.2rem;
+	font-family: "Roboto";
+}
+.entry-meta a {
+	font-size: 12px;
 }

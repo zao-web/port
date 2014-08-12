@@ -78,18 +78,16 @@ function port_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = sprintf(
-		_x( 'Posted on %s', 'post date', 'port' ),
-		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
+	printf( __( '<span class="posted-on">%1$s</span><br><span class="byline"> By: %2$s</span>', 'garden' ),
+		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+			esc_url( get_permalink() ),
+			$time_string
+		),
+		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			esc_html( get_the_author() )
+		)
 	);
-
-	$byline = sprintf(
-		_x( 'by %s', 'post author', 'port' ),
-		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-	);
-
-	echo '<span class="posted-on">' . $posted_on . '</span><span class="byline"> ' . $byline . '</span>';
-
 }
 endif;
 
