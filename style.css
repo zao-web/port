@@ -757,7 +757,9 @@ header {
 	right:18.9%;
 	cursor: pointer;
 }
-.home .entry-header {
+.home .entry-header,
+.page .entry-header,
+.wpsc-product .entry-header {
 	display: none;
 }
 .social-media {
