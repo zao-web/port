@@ -48,6 +48,13 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 
+		<?php if( is_front_page() || is_home() || is_single() ) : ?>
+			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
+		<?php else: ?>	
+			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
+		<?php endif; ?>	
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+
 		<?php if( is_page( 'home' ) ) : ?>
 
 			<div class="home-hero">
@@ -59,13 +66,6 @@
 				<a href="http://instagram.com/portlbc"><img src="<?php echo get_stylesheet_directory_uri() . '/img/instagram.png'; ?>" alt="Instagram Icon" /></a>
 			</div><!-- .social-media -->
 		<?php endif; ?>
-		
-		<?php if( is_front_page() || is_home() || is_single() ) : ?>
-			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
-		<?php else: ?>	
-			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
-		<?php endif; ?>	
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 			
 			<?php if ( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) {
 				wp_nav_menu( $category );
