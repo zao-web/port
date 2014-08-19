@@ -362,8 +362,8 @@ a:visited,
 a:hover,
 a:focus,
 a:active {
-	color: #000 !important; /*overides bootstrap CSS*/
-	text-decoration: none !important; /*overides bootstrap CSS*/
+	color: #000; 
+	text-decoration: none; 
 }
 
 /*--------------------------------------------------------------
@@ -430,8 +430,7 @@ a:active {
 .menu-main-menu-container a,
 .category-nav a {
 	display: block;
-	text-decoration: none;
-	color: #fff;
+	color: #fff; 
 }
 .menu-main-menu-container a {
 	font-size: 30px;

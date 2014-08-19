@@ -95,7 +95,7 @@ add_action( 'widgets_init', 'port_widgets_init' );
 function port_scripts() {
 	wp_enqueue_style( 'port-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'port-carousel-style', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css' );
+	wp_enqueue_style( 'port-carousel-style', get_template_directory_uri()  . '/css/bootstrap-partial.css' );
 
 	wp_enqueue_script( 'port-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
