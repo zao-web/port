@@ -95,11 +95,15 @@ add_action( 'widgets_init', 'port_widgets_init' );
 function port_scripts() {
 	wp_enqueue_style( 'port-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'port-carousel-style', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css' );
+
 	wp_enqueue_script( 'port-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'port-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
 	wp_enqueue_script( 'port-overlay', get_template_directory_uri() . '/js/overlay.js', array( 'jquery'), '', true );
+
+	wp_enqueue_script( 'port-carousel', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -117,7 +121,9 @@ add_action( 'wp_enqueue_scripts', 'port_scripts' );
  */
 //require get_template_directory() . '/inc/custom-header.php';
 
-
+/**
+ * Pulls in images, tagline, and links from front-page ACF
+ */
 function port_module( $number ) { ?>
 
 	<div class="module" id="img-<?php echo absint( $number ); ?>">
@@ -144,6 +150,40 @@ function port_module( $number ) { ?>
 		
 	</div>
 	<?php
+}
+
+/**
+ * Home Slider Carousel, code courtesy of Roland Warmerdam http://codepen.io/Rowno/pen/Afykb
+ */
+function port_carousel() { ?>
+	<?php 
+		$image1 = get_field( 'hero_image_1' );
+		$image2 = get_field( 'hero_image_2' ); 
+		$image3 = get_field( 'hero_image_3' );  
+	?>
+	
+	<div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
+		<ul class="carousel-indicators">
+			<li data-target="#carousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel" data-slide-to="1"></li>
+		    <li data-target="#carousel" data-slide-to="2"></li>
+		</ul>
+		<!-- Carousel items -->
+  		<div class="carousel-inner">
+	  		<?php if ( get_post_meta(get_the_ID(), 'hero_image_1', true)) : ?>
+			    <div class="active item"><img src="<?php echo $image1['url']; ?>" alt="<?php echo $image1['alt']; ?>" /></div>
+			<?php endif; ?>
+
+			<?php if ( get_post_meta(get_the_ID(), 'hero_image_2', true)) : ?>
+			    <div class="item"><img src="<?php echo $image2['url']; ?>" alt="<?php echo $image2['alt']; ?>" /></div>
+			<?php endif; ?>
+			    
+			<?php if ( get_post_meta(get_the_ID(), 'hero_image_2', true)) : ?>
+			    <div class="item"><img src="<?php echo $image3['url']; ?>" alt="<?php echo $image3['alt']; ?>" /></div>
+			<?php endif; ?>
+  		</div>
+	</div>
+	<?php 
 }
 
 /**

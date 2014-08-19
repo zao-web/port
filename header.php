@@ -55,11 +55,8 @@
 		<?php endif; ?>	
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 
-		<?php if( is_page( 'home' ) ) : ?>
-
-			<div class="home-hero">
-				<img src="<?php the_field( 'hero_image_1' ); ?>" />
-			</div><!-- .home-image -->
+		<?php if( is_page( 'home' ) ) :
+			port_carousel(); ?>
 
 			<div class="social-media">
 				<a href="https://www.facebook.com/portlbc"><div class="dashicons dashicons-facebook-alt"></div></a>
