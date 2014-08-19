@@ -362,7 +362,8 @@ a:visited,
 a:hover,
 a:focus,
 a:active {
-	color: #000;
+	color: #000 !important; /*overides bootstrap CSS*/
+	text-decoration: none !important; /*overides bootstrap CSS*/
 }
 
 /*--------------------------------------------------------------
