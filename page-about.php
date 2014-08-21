@@ -1,7 +1,7 @@
 <?php
 /**
- * Template Name: Static Info Page
- *
+ * 
+ * Customized page for About Page
  * 
  *
  * @package port
