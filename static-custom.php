@@ -9,7 +9,7 @@
 <article class="static" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="static-entry-header">
 		<?php the_title( '<h1 class="blogs-entry-title">', '</h1>' ); ?>
-	</header><!-- .blogs-entry-header -->
+	</header><!-- .static-entry-header -->
 
 	<div class="static-entry-content">
 		<?php the_content(); ?>
@@ -19,6 +19,6 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .blogs-entry-content -->
+	</div><!-- .static-entry-content -->
 
 </article><!-- #post-## -->
