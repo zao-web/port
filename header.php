@@ -50,6 +50,8 @@
 
 		<?php if( is_front_page() || is_home() || is_single() ) : ?>
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
+		<?php elseif( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) : ?>	
+			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
 		<?php else: ?>	
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
 		<?php endif; ?>	
