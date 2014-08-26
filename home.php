@@ -17,6 +17,7 @@ get_header(); ?>
 			<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
+		<div class="blog-post">
 			<div class="featured-image">
 				<?php 
 				if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
@@ -32,6 +33,7 @@ get_header(); ?>
 				 */
 				get_template_part( 'content', get_post_format() );
 			?>
+		</div>
 
 		<?php endwhile; ?>
 
