@@ -65,11 +65,13 @@
 				<a href="http://instagram.com/portlbc"><img src="<?php echo get_stylesheet_directory_uri() . '/img/instagram.png'; ?>" alt="Instagram Icon" /></a>
 			</div><!-- .social-media -->
 		<?php endif; ?>
-			
+		</nav><!-- #site-navigation -->
+		
+		<nav id="secondary-navigation">
 			<?php if ( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) {
 				wp_nav_menu( $category );
 			} ?>
-		</nav><!-- #site-navigation -->
+		</nav><!-- #secondary-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
