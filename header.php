@@ -38,8 +38,10 @@
 		<div class="site-branding">
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			
-			<?php if( is_front_page() || is_home() || is_single() ) : ?>
+			<?php if( is_front_page() || is_home() || is_singular( 'post' ) ) : ?>
 				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-white.png'; ?>" alt="Port LBC Logo" /></a>
+			<?php elseif( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) : ?>	
+				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
 			<?php else: ?>
 				<a id="logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_stylesheet_directory_uri() . '/img/logo-black.png'; ?>" alt="Port LBC Logo" /></a>
 			<?php endif; ?>
@@ -48,7 +50,7 @@
 
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 
-		<?php if( is_front_page() || is_home() || is_single() ) : ?>
+		<?php if( is_front_page() || is_home() || is_singular( 'post' ) ) : ?>
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-white.png'; ?>" />
 		<?php elseif( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) : ?>	
 			<img id="slider-btn" src="<?php echo get_stylesheet_directory_uri() . '/img/menu-black.png'; ?>" />
