@@ -425,7 +425,8 @@ a:active {
 	float: right;
 	margin-right: 0;
 }
-.category-nav li:hover {
+.category-nav li:hover,
+.category-nav .current-menu-item {
 	border: 1px solid #fff;
 }
 .menu-main-menu-container a,
@@ -993,6 +994,7 @@ article.static {
 /*--------------------------------------------------------------
 14.2 Shop Page
 --------------------------------------------------------------*/
+
 #default_products_page_container {
 	margin-left: 18.9%;
 	margin-right: 18.9%;
