@@ -426,7 +426,8 @@ a:active {
 	margin-right: 0;
 }
 .category-nav li:hover,
-.category-nav .current-menu-item {
+.category-nav .current-menu-item,
+.category-nav .current-category-item {
 	border: 1px solid #fff;
 }
 .menu-main-menu-container a,

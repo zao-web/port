@@ -186,6 +186,29 @@ function port_carousel() { ?>
 	<?php 
 }
 
+add_filter( 'wp_nav_menu_objects', 'port_add_category_menu_item', 10, 2 );
+
+function port_add_category_menu_item( $menu_items, $args ) {
+
+	if ( 'category' !== $args->theme_location ) {
+		return $menu_items;
+	}
+
+	if ( ! is_singular( 'wpsc-product' ) ) {
+		return $menu_items;
+	}
+
+	$current_link = get_permalink();
+
+	foreach ( $menu_items as $key => $menu_item ) {
+		if ( false !== strpos( $current_link, $menu_item->url ) ) {
+			$menu_items[ $key ]->classes[] = 'current-category-item';
+		}
+	}
+
+	return $menu_items;
+}
+
 /**
 * Hide/Remove Decimal Point on Product Price by http://www.agusmu.com
 **/
