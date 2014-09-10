@@ -1103,6 +1103,7 @@ article.static {
 14.4 News Page
 --------------------------------------------------------------*/
 .blog .featured-image {
+	margin-top: 0;
 	margin-bottom: 3%;
 }
 .blog article {
@@ -1163,4 +1164,24 @@ article.static {
 }
 .blog-post:nth-child(3) {
 	float: right;
+}
+
+/*--------------------------------------------------------------
+14.4 Shopping Bag
+--------------------------------------------------------------*/
+#checkout_page_container {
+	width: 62.13768%;
+	margin: 3em auto;
+}
+
+.wpsc-shopping-cart .pricedisplay {
+	font-style: normal;
+	font-weight: bold;
+}
+.wpsc-shopping-cart .wpsc_product_name {
+	font-size: 1.8rem;
+}
+.wpsc_buy_button {
+	width: 250px;
+	height: 40px;
 }

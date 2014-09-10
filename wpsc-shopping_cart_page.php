@@ -12,7 +12,17 @@ if(wpsc_cart_item_count() < 1) :
 endif;
 ?>
 <div id="checkout_page_container">
-<h3><?php _e('Please review your order', 'wpsc'); ?></h3>
+<h2><a href="#">Continue Shopping</a></h2>
+<!-- div for make purchase button -->
+<div class='wpsc_make_purchase'>
+   <span>
+      <?php if(!wpsc_has_tnc()) : ?>
+         <input type='hidden' value='yes' name='agree' />
+      <?php endif; ?>
+         <input type='hidden' value='submit_checkout' name='wpsc_action' />
+         <input type='submit' value='<?php _e('Checkout', 'wpsc');?>' class='make_purchase wpsc_buy_button' />
+   </span>
+</div>
 <table class="checkout_cart">
    <tr class="header">
       <th colspan="2" ><?php _e('Product', 'wpsc'); ?></th>
@@ -438,7 +448,7 @@ endif;
                <input type='hidden' value='yes' name='agree' />
             <?php endif; ?>
                <input type='hidden' value='submit_checkout' name='wpsc_action' />
-               <input type='submit' value='<?php _e('Purchase', 'wpsc');?>' class='make_purchase wpsc_buy_button' />
+               <input type='submit' value='<?php _e('Checkout', 'wpsc');?>' class='make_purchase wpsc_buy_button' />
          </span>
       </div>
 
