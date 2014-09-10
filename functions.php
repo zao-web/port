@@ -103,6 +103,13 @@ function port_scripts() {
 
 	wp_enqueue_script( 'port-overlay', get_template_directory_uri() . '/js/overlay.js', array( 'jquery'), '', true );
 
+	$img_fragment = '<img src="%s" alt="%s" />';
+
+	wp_localize_script( 'port-overlay', 'portOverlayVars', array(
+	    'logo_url'   => sprintf( $img_fragment, get_stylesheet_directory_uri() . '/img/logo-white.png', 'Port LBC Logo' ),
+	    'slider_url' => get_stylesheet_directory_uri() . '/img/menu-white.png'
+	) );
+	
 	wp_enqueue_script( 'port-carousel', 'http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.js' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
