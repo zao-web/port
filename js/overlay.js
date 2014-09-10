@@ -16,7 +16,7 @@ jQuery( document ).ready( function( $ ) {
 	}, function(){
 		$('#page-overlay').css('display','none');
 		$('.menu-main-menu-container').css('display','none');
-		$('#logo').children().attr('src' original_logo );
+		$('#logo').attr('src'. original_logo );
 		$('#slider-btn').attr( 'src', original_slider );
 	});
 
