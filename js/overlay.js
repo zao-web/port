@@ -5,7 +5,7 @@
  */
 
 jQuery( document ).ready( function( $ ) {
-	var original_logo = $('#logo').attr('src');
+	var original_logo = $('#logo img').attr('src');
 	var original_slider = $('#slider-btn').attr('src');
 
 	$('#slider-btn').toggle(function() {
@@ -16,7 +16,7 @@ jQuery( document ).ready( function( $ ) {
 	}, function(){
 		$('#page-overlay').css('display','none');
 		$('.menu-main-menu-container').css('display','none');
-		$('#logo').attr('src'. original_logo );
+		$('#logo img').attr('src', original_logo );
 		$('#slider-btn').attr( 'src', original_slider );
 	});
 
