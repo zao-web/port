@@ -73,7 +73,7 @@ html {
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_textportize_inportafari_for_ios_without_disabling_user_zoom/ */
 }
-html, 
+html,
 body {
 	height: 100%;
 	width: 100%;
@@ -362,8 +362,8 @@ a:visited,
 a:hover,
 a:focus,
 a:active {
-	color: #000; 
-	text-decoration: none; 
+	color: #000;
+	text-decoration: none;
 }
 
 /*--------------------------------------------------------------
@@ -433,7 +433,7 @@ a:active {
 .menu-main-menu-container a,
 .category-nav a {
 	display: block;
-	color: #fff; 
+	color: #fff;
 }
 .menu-main-menu-container a {
 	font-size: 30px;
@@ -795,7 +795,7 @@ p.italics {
     top: 0;
     left: 0;
     z-index: 900;
-    background: rgba(0, 0, 0, 0.9); 
+    background: rgba(0, 0, 0, 0.9);
     text-align: center;
     display: none;
 }
@@ -876,7 +876,7 @@ p.italics {
 	right: 10px;
 	bottom: 10px;
 	overflow: hidden;
-	opacity: 0;	
+	opacity: 0;
 }
 .overlay:before {
   	content:'';
@@ -1046,9 +1046,9 @@ article.static {
 .product-overlay .pricedisplay {
 	top:63%;
 }
-.product-overlay:hover .wpsc_product_title,
-.product-overlay:hover .pricedisplay,
-.product-overlay:hover {
+.hover .product-overlay .wpsc_product_title,
+.hover .product-overlay .pricedisplay,
+.hover .product-overlay {
 	opacity: 1;
 	-webkit-transition: .5s;
 	transition: .5s;
@@ -1062,7 +1062,7 @@ article.static {
 	display: none;
 }
 #single_product_page_container {
-	margin: 1% 18.9%; 
+	margin: 1% 18.9%;
 }
 .single_product_display .imagecol {
 	margin-right: 7%;
