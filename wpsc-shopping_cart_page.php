@@ -1,5 +1,5 @@
 <?php
-global $wpsc_cart, $wpdb, $wpsc_checkout, $wpsc_gateway, $wpsc_coupons, $wpsc_registration_error_messages;
+global $wpsc_cart, $wpdb, $wpsc_checkout, $wpsc_gateway, $wpsc_coupons, $wpsc_registration_error_messages, $wpsc_variations;
 $wpsc_checkout = new wpsc_checkout();
 $alt = 0;
 $coupon_num = wpsc_get_customer_meta( 'coupon' );
@@ -26,10 +26,11 @@ endif;
 <table class="checkout_cart">
    <tr class="header">
       <th colspan="2" ><?php _e('Product', 'wpsc'); ?></th>
-      <th><?php _e('Quantity', 'wpsc'); ?></th>
+      <th><?php _e('Remove', 'wpsc'); ?></th>
+      <th><?php _e('Size', 'wpsc'); ?></th>
       <th><?php _e('Price', 'wpsc'); ?></th>
-      <th><?php _e('Total', 'wpsc'); ?></th>
-        <th>&nbsp;</th>
+      <th><?php _e('Qty.', 'wpsc'); ?></th>
+      <th><?php _e('Subtotal', 'wpsc'); ?></th>
    </tr>
    <?php while (wpsc_have_cart_items()) : wpsc_the_cart_item(); ?>
       <?php
@@ -40,7 +41,6 @@ endif;
          $alt_class = '';
        ?>
       <?php  //this displays the confirm your order html ?>
-
 	  <?php do_action ( "wpsc_before_checkout_cart_row" ); ?>
       <tr class="product_row product_row_<?php echo wpsc_the_cart_item_key(); ?> <?php echo $alt_class;?>">
 
@@ -64,24 +64,12 @@ endif;
          </td>
 
          <td class="wpsc_product_name wpsc_product_name_<?php echo wpsc_the_cart_item_key(); ?>">
-			<?php do_action ( "wpsc_before_checkout_cart_item_name" ); ?>
+			   <!-- TO DO: Pull in SKU appending Color abbr and Size -->
+         <?php do_action ( "wpsc_before_checkout_cart_item_name" ); ?>
             <a href="<?php echo esc_url( wpsc_cart_item_url() );?>"><?php echo wpsc_cart_item_name(); ?></a>
 			<?php do_action ( "wpsc_after_checkout_cart_item_name" ); ?>
+            <!-- TO DO: Pull in Variation Color -->
          </td>
-
-         <td class="wpsc_product_quantity wpsc_product_quantity_<?php echo wpsc_the_cart_item_key(); ?>">
-            <form action="<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>" method="post" class="adjustform qty">
-               <input type="text" name="quantity" size="2" value="<?php echo wpsc_cart_item_quantity(); ?>" />
-               <input type="hidden" name="key" value="<?php echo wpsc_the_cart_item_key(); ?>" />
-               <input type="hidden" name="wpsc_update_quantity" value="true" />
-               <input type='hidden' name='wpsc_ajax_action' value='wpsc_update_quantity' />
-               <input type="submit" value="<?php _e('Update', 'wpsc'); ?>" />
-            </form>
-         </td>
-
-
-            <td><?php echo wpsc_cart_single_item_price(); ?></td>
-         <td class="wpsc_product_price wpsc_product_price_<?php echo wpsc_the_cart_item_key(); ?>"><span class="pricedisplay"><?php echo wpsc_cart_item_price(); ?></span></td>
 
          <td class="wpsc_product_remove wpsc_product_remove_<?php echo wpsc_the_cart_item_key(); ?>">
             <form action="<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>" method="post" class="adjustform remove">
@@ -89,12 +77,32 @@ endif;
                <input type="hidden" name="key" value="<?php echo wpsc_the_cart_item_key(); ?>" />
                <input type="hidden" name="wpsc_update_quantity" value="true" />
                <input type='hidden' name='wpsc_ajax_action' value='wpsc_update_quantity' />
-               <input type="submit" value="<?php _e('Remove', 'wpsc'); ?>" />
+               <input type="image" name="submit" src="<?php echo get_stylesheet_directory_uri() . '/img/remove.png'; ?>" value="<?php _e('', 'wpsc'); ?>" alt="Submit" />
             </form>
          </td>
+
+         <td class="wpsc_product_size wpsc_product_size_<?php echo wpsc_the_cart_item_key(); ?>">
+            <!-- TO DO: Pull in Variation Size -->
+         </td>
+
+         <td class="wpsc_single_product_price"><?php echo wpsc_cart_single_item_price(); ?></td>
+
+         <td class="wpsc_product_quantity wpsc_product_quantity_<?php echo wpsc_the_cart_item_key(); ?>">
+            <form action="<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>" method="post" class="adjustform qty">
+               <input type="text" name="quantity" size="2" value="<?php echo wpsc_cart_item_quantity(); ?>" />
+               <input type="hidden" name="key" value="<?php echo wpsc_the_cart_item_key(); ?>" />
+               <input type="hidden" name="wpsc_update_quantity" value="true" />
+               <input type='hidden' name='wpsc_ajax_action' value='wpsc_update_quantity' />
+            </form>
+         </td>
+         
+         <td class="wpsc_product_price wpsc_product_price_<?php echo wpsc_the_cart_item_key(); ?>"><span class="pricedisplay"><?php echo wpsc_cart_item_price(); ?></span></td>  
+         
       </tr>
+
 	  <?php do_action ( "wpsc_after_checkout_cart_row" ); ?>
    <?php endwhile; ?>
+
    <?php //this HTML displays coupons if there are any active coupons to use ?>
 
    <?php do_action ( 'wpsc_after_checkout_cart_rows' ); ?>
@@ -269,7 +277,11 @@ endif;
          </tr>
      <?php endif ?>
 
+   <form>
+      <input type="submit" value="<?php _e('Update Shopping Bag', 'wpsc'); ?>" class="wpsc_update_cart_button" />
+   </form>
 
+   <hr>
 
    <tr class='total_price'>
       <td class='wpsc_totals'>
