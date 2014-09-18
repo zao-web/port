@@ -107,27 +107,6 @@ endif;
 
    <?php do_action ( 'wpsc_after_checkout_cart_rows' ); ?>
 
-   <?php
-
-   if(wpsc_uses_coupons()): ?>
-
-      <tr class="wpsc_total_before_shipping">
-         <td colspan="3"><?php _e('Cost before shipping:','wpsc'); ?></td>
-         <td colspan="3" class="wpsc_total_amount_before_shipping"><?php echo wpsc_cart_total_widget(false,false,false);?></td>
-      </tr>
-      <?php if(wpsc_coupons_error()): ?>
-         <tr class="wpsc_coupon_row wpsc_coupon_error_row"><td colspan="6"><?php _e('Coupon is not valid.', 'wpsc'); ?></td></tr>
-      <?php endif; ?>
-      <tr class="wpsc_coupon_row">
-         <td colspan="2"><?php _e('Enter coupon code :', 'wpsc'); ?></td>
-         <td  colspan="4" class="coupon_code">
-            <form  method="post" action="<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>">
-               <input type="text" name="coupon_num" id="coupon_num" value="<?php echo $wpsc_cart->coupons_name; ?>" />
-               <input type="submit" value="<?php _e('Update', 'wpsc') ?>" />
-            </form>
-         </td>
-      </tr>
-   <?php endif; ?>
    </table>
    <!-- cart contents table close -->
   <?php if(wpsc_uses_shipping()): ?>
@@ -216,7 +195,7 @@ endif;
       $wpec_taxes_controller = new wpec_taxes_controller();
       if($wpec_taxes_controller->wpec_taxes_isenabled()):
    ?>
-      <table class="productcart">
+      <!-- <table class="productcart">
          <tr class="total_price total_tax">
             <td colspan="3">
                <?php echo wpsc_display_tax_label(true); ?>
@@ -225,7 +204,7 @@ endif;
                <span id="checkout_tax" class="pricedisplay checkout-tax"><?php echo wpsc_cart_tax(); ?></span>
             </td>
          </tr>
-      </table>
+      </table> -->
    <?php endif; ?>
    <?php do_action('wpsc_before_form_of_shopping_cart'); ?>
 
@@ -254,6 +233,11 @@ endif;
 				</fieldset>
 			</div>
 	<?php endif; ?>
+
+   <form class="update_button">
+      <input type="submit" value="<?php _e('Update Shopping Bag', 'wpsc'); ?>" class="wpsc_update_cart_button" />
+   </form>
+
    <table class='wpsc_checkout_table wpsc_checkout_table_totals'>
       <?php if(wpsc_uses_shipping()) : ?>
 	      <tr class="total_price total_shipping">
@@ -277,21 +261,46 @@ endif;
          </tr>
      <?php endif ?>
 
-   <form>
-      <input type="submit" value="<?php _e('Update Shopping Bag', 'wpsc'); ?>" class="wpsc_update_cart_button" />
-   </form>
+   <?php
 
-   <hr>
+   wpsc_uses_coupons(); ?>
 
-   <tr class='total_price'>
-      <td class='wpsc_totals'>
-      <?php _e('Total Price:', 'wpsc'); ?>
-      </td>
-      <td class='wpsc_totals'>
-         <span id='checkout_total' class="pricedisplay checkout-total"><?php echo wpsc_cart_total(); ?></span>
-      </td>
-   </tr>
+      <!-- <tr class="wpsc_total_before_shipping">
+         <td colspan="3"><?php _e('Cost before shipping:','wpsc'); ?></td>
+         <td colspan="3" class="wpsc_total_amount_before_shipping"><?php echo wpsc_cart_total_widget(false,false,false);?></td>
+      </tr> -->
+      <?php if(wpsc_coupons_error()): ?>
+         <tr class="wpsc_coupon_row wpsc_coupon_error_row"><td colspan="6"><?php _e('Coupon is not valid.', 'wpsc'); ?></td></tr>
+      <?php endif; ?>
+      <tr class="wpsc_coupon_row checkout_data">
+         <td  colspan="4" class="coupon_code">
+            <form  method="post" action="<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>">
+               <input type="text" name="coupon_num" id="coupon_num" onfocus="if(this.value == 'Enter Coupon Code') {this.value = '';}" onblur="if(this.value == '') {this.value = 'Enter Coupon Code';}" value="Enter Coupon Code" />
+               <!-- <input type="submit" value="<?php _e('Update', 'wpsc') ?>" /> -->
+            </form>
+         </td>
+         <td class="customer_note_parent">
+            <form name="customer_form" id="customer_form"> <!-- To Do: Connect Form to Order -->
+               <textarea name="customer_note" id="customer_note" onfocus="if(this.value == 'Add a note to your order') {this.value = '';}" onblur="if(this.value == '') {this.value = 'Add a note to your order';}">Add a note to your order</textarea>
+            </form>
+         </td>
+         <td class='wpsc_totals'>
+            <p><?php _e('Subtotal', 'wpsc'); ?></p>
+            <span id='checkout_total' class="pricedisplay checkout-total"><?php echo wpsc_cart_total(); ?></span>
+         </td>
+      </tr>
    </table>
+
+   <!-- div for make purchase button -->
+      <div class='wpsc_make_purchase'>
+         <span>
+            <?php if(!wpsc_has_tnc()) : ?>
+               <input type='hidden' value='yes' name='agree' />
+            <?php endif; ?>
+               <input type='hidden' value='submit_checkout' name='wpsc_action' />
+               <input type='submit' value='<?php _e('Checkout', 'wpsc');?>' class='make_purchase wpsc_buy_button' />
+         </span>
+      </div>
 
 	<form class='wpsc_checkout_forms' action='<?php echo esc_url( get_option( 'shopping_cart_url' ) ); ?>' method='post' enctype="multipart/form-data">
       <?php
@@ -452,17 +461,6 @@ endif;
          </tr>
       <?php endif; ?>
       </table>
-
-<!-- div for make purchase button -->
-      <div class='wpsc_make_purchase'>
-         <span>
-            <?php if(!wpsc_has_tnc()) : ?>
-               <input type='hidden' value='yes' name='agree' />
-            <?php endif; ?>
-               <input type='hidden' value='submit_checkout' name='wpsc_action' />
-               <input type='submit' value='<?php _e('Checkout', 'wpsc');?>' class='make_purchase wpsc_buy_button' />
-         </span>
-      </div>
 
 <div class='clear'></div>
 </form>

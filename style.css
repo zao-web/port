@@ -1184,9 +1184,6 @@ article.static {
 .product_row_0 td {
 	padding-top: 15px !important; /* overrides wpsc css */
 }
-.checkout_cart .header th {
-	border-bottom: 1px solid #000;
-}
 .wpsc-shopping-cart .pricedisplay {
 	font-style: normal;
 }
@@ -1195,15 +1192,21 @@ article.static {
 	font-size: 22px;
 	font-size: 2.2rem;
 }
-.wpsc-shopping-cart .header th {
+.wpsc-shopping-cart .header th,
+.checkout-heading-row h4 {
+	border-bottom: 1px solid #000;
 	font-weight: normal;
 	font-size: 14px;
 	font-size: 1.4rem; 
 }
 .wpsc_buy_button,
+.wpsc_update_cart_button,
+.update_button {
+	height: 40px;
+}
+.wpsc_buy_button,
 .wpsc_update_cart_button {
 	width: 250px;
-	height: 40px;
 }
 input.wpsc_update_cart_button {
 	background-color: #e1e1e1;
@@ -1244,4 +1247,59 @@ td.wpsc_product_name {
 	line-height: 1.2em;
 	font-size: 22px !important; /*overrides wpsc css */
 	font-size: 2.2rem !important; /*overrides wpsc css */
+}
+/*.coupon_code form {
+	float: left;
+}*/
+#coupon_num,
+#customer_note {
+	border-radius: 0;
+	width: 95%;
+}
+#coupon_num {
+	height: 35px;
+}
+input#coupon_num,
+textarea#customer_note {
+	padding-left: 10px;
+	font-family: 'Roboto', sans-serif;
+	color: #ccc;
+}
+textarea[name="customer_note"] {
+	border: 1px solid #ccc;
+	resize: none;
+	min-height: 125px;
+	padding-top: 10px;
+}
+
+.wpsc_checkout_table {
+	border-top: 1px solid #000;
+}
+.coupon_code,
+.customer_note_parent,
+.wpsc_totals {
+	border-top: 1px solid #000 !important; /* overwrites wpsc css */
+	padding-top: 1em !important; /* overwrites wpsc css */
+}
+.update_button {
+	margin-bottom: 1.5em;
+}
+.wpsc_totals {
+	text-align: center;
+	background: #e1e1e1;
+	width: 250px;
+}
+#checkout_total span.pricedisplay {
+	font-size: 60px;
+}
+.wpsc_checkout_form_2,
+.wpsc_checkout_form_3,
+.wpsc_checkout_form_19, 
+.wpsc_checkout_form_18,
+.wpsc_checkout_form_4,
+.wpsc_checkout_form_5,
+.wpsc_checkout_form_6,
+.wpsc_checkout_form_7,
+.wpsc_checkout_form_8 {
+	display: none;
 }
