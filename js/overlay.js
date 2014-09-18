@@ -20,6 +20,12 @@ jQuery( document ).ready( function( $ ) {
 		$('#slider-btn').attr( 'src', original_slider );
 	});
 
+	$('.dashicons-search').toggle(function() {
+		$('.menu-main-menu-container').css('display','none');
+	}, function(){
+		$('.menu-main-menu-container').css('display','block');
+	})
+
 	$( '.imagecol' ).hover(
 		function() { $( this ).addClass( 'hover' ); },
 		function() { $( this ).removeClass( 'hover' ); }

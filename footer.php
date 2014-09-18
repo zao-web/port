@@ -16,7 +16,7 @@
 			<a href="mailto:info@portlbc.com"><p class="italics">info@portlbc.com</p></a>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
-	<div id="page-overlay"></div>
+	<div id="page-overlay"><div class="dashicons dashicons-search"></div></div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
