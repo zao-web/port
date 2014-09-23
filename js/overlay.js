@@ -9,21 +9,23 @@ jQuery( document ).ready( function( $ ) {
 	var original_slider = $('#slider-btn').attr('src');
 
 	$('#slider-btn').toggle(function() {
-		$('#page-overlay').css('display','block');
-		$('.menu-main-menu-container').css('display','block');
+		$('#page-overlay').fadeIn("slow");
+		$('.menu-main-menu-container').slideDown(800);
+		$('.dashicons-search').fadeIn("slow");
 		$('#logo').html( portOverlayVars.logo_url );
 		$('#slider-btn').attr( 'src', portOverlayVars.slider_url );
 	}, function(){
-		$('#page-overlay').css('display','none');
-		$('.menu-main-menu-container').css('display','none');
+		$('#page-overlay').fadeOut("slow");
+		$('.menu-main-menu-container').slideUp(300);
+		$('.dashicons-search').fadeOut("slow");
 		$('#logo img').attr('src', original_logo );
 		$('#slider-btn').attr( 'src', original_slider );
 	});
 
 	$('.dashicons-search').toggle(function() {
-		$('.menu-main-menu-container').css('display','none');
+		$('.menu-main-menu-container').fadeOut(600);
 	}, function(){
-		$('.menu-main-menu-container').css('display','block');
+		$('.menu-main-menu-container').fadeIn(600);
 	})
 
 	$( '.imagecol' ).hover(
