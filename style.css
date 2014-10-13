@@ -1180,6 +1180,33 @@ article.static {
 .blog-post:nth-child(3) {
 	float: right;
 }
+.previous,
+.next {
+	position: absolute;
+	color: #fff;
+}
+.previous,
+.next {
+	font-size: 1.2rem;
+}
+.previous {
+	left: 20%;
+	-ms-transform: translate(-50%, 130%);
+	-webkit-transform: translate(-50%, 130%);
+	transform: translate(-50%, 130%);
+}
+.next {
+	left: 75%;
+	-ms-transform: translate(-50%, 130%);
+	-webkit-transform: translate(-50%, 130%);
+	transform: translate(-50%, 130%);
+}
+.previous a,
+.next a {
+	font-size: 35px;
+	font-size: 3.5rem;
+	color: #fff;
+}
 
 /*--------------------------------------------------------------
 14.4 Shopping Cart
