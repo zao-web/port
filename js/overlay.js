@@ -24,6 +24,7 @@ jQuery( document ).ready( function( $ ) {
 
 	$('.dashicons-search').toggle(function() {
 		$('.menu-main-menu-container').fadeOut(600);
+		
 	}, function(){
 		$('.menu-main-menu-container').fadeIn(600);
 	})
