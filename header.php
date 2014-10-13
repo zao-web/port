@@ -65,11 +65,12 @@
 		<?php endif; ?>
 		</nav><!-- #site-navigation -->
 		
-		<nav id="secondary-navigation">
-			<?php if ( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) {
-				wp_nav_menu( $category );
-			} ?>
-		</nav><!-- #secondary-navigation -->
+		<?php if ( is_products_page() || is_tax( 'wpsc_product_category' ) || is_singular( 'wpsc-product' ) ) { ?>
+			<nav id="secondary-navigation">
+				<?php wp_nav_menu( $category ); ?>
+			</nav><!-- #secondary-navigation -->
+		<?php } ?>
+		
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
