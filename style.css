@@ -1144,15 +1144,13 @@ article.static {
 .single .byline {
 	display: none;
 }
-.blog-post:nth-child(1),
-.blog-post:nth-child(2),
-.blog-post:nth-child(3) {
+.blog-post {
 	position: relative;
 }
-.blog-post:nth-child(1) .featured-image {
+.blog-post .featured-image {
 	top: 0;
 }
-.blog-post:nth-child(1) article {
+.blog-post article {
 	min-height: 300px;
 }
 .previous-img,
