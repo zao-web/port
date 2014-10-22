@@ -1117,15 +1117,22 @@ article.static {
 /*--------------------------------------------------------------
 14.4 News Page
 --------------------------------------------------------------*/
-.blog .featured-image {
+.blog .featured-image,
+.single .featured-image {
 	margin-top: 0;
 	margin-bottom: 3%;
 }
-.blog article {
+.blog .featured-image img,
+.single .featured-image img {
+	width: 100%;
+}
+.blog article,
+.single article {
 	margin-left: 18.9%;
 	margin-right: 18.9%;
 }
-.blog .entry-title a {
+.blog .entry-title a,
+.single .entry-title a {
 	font-size: 32px;
 	font-size: 3.2rem;
 	font-family: "Roboto";
@@ -1133,6 +1140,9 @@ article.static {
 .entry-meta a {
 	font-size: 12px;
 	font-size: 1.2rem;
+}
+.single .byline {
+	display: none;
 }
 .blog-post:nth-child(1),
 .blog-post:nth-child(2),
@@ -1143,66 +1153,56 @@ article.static {
 	top: 0;
 }
 .blog-post:nth-child(1) article {
-	height: 300px;
+	min-height: 300px;
 }
-.blog-post:nth-child(2),
-.blog-post:nth-child(3) {
+.previous-img,
+.next-img {
 	width: 50%;
-}
-.blog-post:nth-child(2) .featured-image,
-.blog-post:nth-child(3) .featured-image {
 	position: relative;
+}
+.previous-img,
+.next-img,
+.previous-img img,
+.next-img img {
 	max-height: 266px;
 }
-.blog-post:nth-child(2) .featured-image:after,
-.blog-post:nth-child(3) .featured-image:after  {
+.previous-img:after,
+.next-img:after  {
     content:'';
     position:absolute;
     width:100%; height:100%;
     top:0; left:0;
     background:rgba(0,0,0,0.6);
 }
-.blog-post:nth-child(2) article,
-.blog-post:nth-child(3) article {
-	display: none;
-}
-.blog-post:nth-child(2) .entry-title,
-.blog-post:nth-child(3) .entry-title {
-	display: block;
-	position: absolute;
-	z-index: 10;
-	top: 0;
-	left: 0;
-}
-.blog-post:nth-child(2) {
+.previous-img {
 	float: left;
 }
-.blog-post:nth-child(3) {
+.next-img {
 	float: right;
 }
-.previous,
-.next {
+.previous-title,
+.next-title {
 	position: absolute;
 	color: #fff;
 }
-.previous,
-.next {
+.previous-title,
+.next-title {
 	font-size: 1.2rem;
 }
-.previous {
+.previous-title {
 	left: 20%;
 	-ms-transform: translate(-50%, 130%);
 	-webkit-transform: translate(-50%, 130%);
 	transform: translate(-50%, 130%);
 }
-.next {
-	left: 75%;
+.next-title {
+	left: 70%;
 	-ms-transform: translate(-50%, 130%);
 	-webkit-transform: translate(-50%, 130%);
 	transform: translate(-50%, 130%);
 }
-.previous a,
-.next a {
+.previous-title a,
+.next-title a {
 	font-size: 35px;
 	font-size: 3.5rem;
 	color: #fff;
