@@ -103,6 +103,8 @@ function port_scripts() {
 
 	wp_enqueue_script( 'port-overlay', get_template_directory_uri() . '/js/overlay.js', array( 'jquery'), '', true );
 
+	wp_enqueue_script( 'port-select', get_template_directory_uri() . '/js/select.js', array( 'jquery'), '', true );
+
 	$img_fragment = '<img src="%s" alt="%s" />';
 
 	wp_localize_script( 'port-overlay', 'portOverlayVars', array(
