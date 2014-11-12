@@ -813,6 +813,27 @@ p.italics {
 .dashicons-search:hover {
 	cursor: pointer;
 }
+#js-search {
+	display: none;
+}
+.search {
+	position: fixed;
+	top: 12em;
+	left: 18.9009%;
+}
+.search input,
+.search input:active,
+.search input:focus {
+	color: #fff;
+	background: transparent;
+	border: transparent;
+	outline: none;
+	font-size: 2.5em;
+}
+.search p {
+	color: #fff;
+	text-align: left;
+}
 
 /*--------------------------------------------------------------
 14.1 Front-Page
@@ -1077,7 +1098,7 @@ article.static {
 	display: none;
 }
 #single_product_page_container {
-	margin: 1% 18.9%;
+	margin-top: 1em;
 }
 .single_product_display .imagecol {
 	margin-right: 7%;
@@ -1112,6 +1133,34 @@ article.static {
 	padding: 1% 0;
 	border-bottom: 1px solid #000;
 	margin-bottom: 3%;
+}
+
+/* Styles select options that were converted into radio buttons */ 
+.radioSelectContainer > select {
+   /* display: none;*/
+}
+.radioSelectContainer > label {
+    display: inline-block;
+    margin: 0.3em 0.3em 0 0;
+    background-color:#fff;
+}
+.radioSelectContainer > label > span {
+    text-align:center;
+    display:block;
+}
+.radioSelectContainer > label > input {
+    position:absolute;
+    top:-20px;
+}
+.radioSelectContainer > label > input + span {
+    border:2px solid #fff;
+    padding: 1px 2px;
+}
+span {
+  padding: 1px 3px;
+}
+.radioSelectContainer > label > input:checked + span {
+    border: 2px solid #000;
 }
 
 /*--------------------------------------------------------------
