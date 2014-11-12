@@ -26,11 +26,13 @@ jQuery( document ).ready( function( $ ) {
 		$('.menu-main-menu-container').fadeOut(600);
 		$('#js-search').css("display", "block");
 		$('#js-search-text').focus();
-		
+		$('#js-search-text').keyup(function(){
+			$('#js-search-instruct').html("Press enter to search.");
+		});
 	}, function(){
 		$('.menu-main-menu-container').fadeIn(600);
+		$('#js-search-instruct').html("Type to begin searching.");
 		$('#js-search').css("display", "none");
-
 	})
 
 	$( '.imagecol' ).hover(

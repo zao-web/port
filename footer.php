@@ -20,7 +20,7 @@
 		<div class="dashicons dashicons-search"></div>
 		<form class="search" id="js-search">
 			<input type="text" id="js-search-text">
-			<p>Type to begin searching.</p>	
+			<p id="js-search-instruct">Type to begin searching.</p>	
 		</form>
 	</div>
 </div><!-- #page -->
