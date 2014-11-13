@@ -19,7 +19,8 @@
 	<div id="page-overlay">
 		<div class="dashicons dashicons-search"></div>
 		<form class="search" id="js-search">
-			<input type="text" id="js-search-text">
+			<input type="text" id="js-search-text" />
+			<input type="submit" class="search-submit" value="Submit" />
 			<p id="js-search-instruct">Type to begin searching.</p>	
 		</form>
 	</div>

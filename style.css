@@ -834,6 +834,9 @@ p.italics {
 	color: #fff;
 	text-align: left;
 }
+.search input[type="submit"] {
+	display: none;
+}
 
 /*--------------------------------------------------------------
 14.1 Front-Page
