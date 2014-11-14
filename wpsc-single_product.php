@@ -84,21 +84,29 @@
 						<?php /** the variation group HTML and loop */?>
                         <?php if (wpsc_have_variation_groups()) { ?>
                         <fieldset><legend><?php _e('Product Options', 'wpsc'); ?></legend>
-						<div class="wpsc_variation_forms">
-                        	<table>
-							<?php while (wpsc_have_variation_groups()) : wpsc_the_variation_group(); ?>
-								<tr><td class="col1"><label for="<?php echo wpsc_vargrp_form_id(); ?>"><?php echo wpsc_the_vargrp_name(); ?>:</label></td>
-								<?php /** the variation HTML and loop */?>
-								<td class="col2"><select class="wpsc_select_variation" name="variation[<?php echo wpsc_vargrp_id(); ?>]" id="<?php echo wpsc_vargrp_form_id(); ?>">
-								<?php while (wpsc_have_variations()) : wpsc_the_variation(); ?>
-									<option value="<?php echo wpsc_the_variation_name(); ?>" id="<?php echo wpsc_the_variation_id(); ?>" <?php echo wpsc_the_variation_out_of_stock(); ?>><?php echo wpsc_the_variation_name(); ?></option>
+							<div class="wpsc_variation_forms">
+						    	<table>
+								<?php while (wpsc_have_variation_groups()) : wpsc_the_variation_group(); ?>
+									<tr>
+										<td class="col1">
+											<label for="<?php echo wpsc_vargrp_form_id(); ?>"><?php echo wpsc_the_vargrp_name(); ?>:</label>
+										</td>
+
+										<?php /** the variation HTML and loop */?>
+										<td class="col2">
+										<?php while (wpsc_have_variations()) : wpsc_the_variation(); ?>
+											<label>
+												<input type="radio" name="<?php echo wpsc_vargrp_form_id(); ?>" value="<?php echo wpsc_the_variation_name(); ?>" id="<?php echo wpsc_the_variation_id(); ?>" />
+												<span><?php echo wpsc_the_variation_name(); ?></span>
+											</label>
+										<?php endwhile; ?>
+										</td>
+									</tr>
 								<?php endwhile; ?>
-								</select></td></tr>
-							<?php endwhile; ?>
-                            </table>
-   							<div id="variation_display_<?php echo wpsc_the_product_id(); ?>" class="is_variation"><?php _e('Combination of product variants is not available', 'wpsc'); ?></div>
-						</div><!--close wpsc_variation_forms-->
-                        </fieldset>
+								</table>     
+								<div id="variation_display_<?php echo wpsc_the_product_id(); ?>" class="is_variation"><?php _e('Combination of product variants is not available', 'wpsc'); ?></div>
+							</div><!--close wpsc_variation_forms-->
+						</fieldset>
 						<?php } ?>
 						<?php /** the variation group HTML and loop ends here */?>
 
