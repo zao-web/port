@@ -146,7 +146,7 @@ textarea {
 h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
-h1, h2, h3, h4, h5, h6, p, a, th {
+h1, h2, h3, h4, h5, h6, p, a, th, textarea, input, form {
 	font-family: "Roboto", sans-serif;
 }
 p, a {
@@ -1137,32 +1137,33 @@ article.static {
 	border-bottom: 1px solid #000;
 	margin-bottom: 3%;
 }
-
-/* Styles select options that were converted into radio buttons */ 
-.radioSelectContainer > select {
-   /* display: none;*/
+#label_0 {
+	display: none;
 }
-.radioSelectContainer > label {
-    display: inline-block;
-    margin: 0.3em 0.3em 0 0;
-    background-color:#fff;
+.wpsc_variation_forms table {
+	margin-top: 1.5em !important; /* overrides wpsc default css */
 }
-.radioSelectContainer > label > span {
-    text-align:center;
-    display:block;
+.wpsc_variation_forms .col1 {
+	font-size: 13px;
+	font-size: 1.3rem;
 }
-.radioSelectContainer > label > input {
-    position:absolute;
-    top:-20px;
+.wpsc_variation_forms label {
+	position: relative;
+	margin-right: .75em;
 }
-.radioSelectContainer > label > input + span {
+.wpsc_variation_forms input {
+    display: none;
+}
+.wpsc_variation_forms input + span {
     border:2px solid #fff;
-    padding: 1px 2px;
+    padding: 2px 6px;
 }
-span {
-  padding: 1px 3px;
+.wpsc_variation_forms span {
+  	padding: 1px 3px;
+  	font-weight: bold;
+
 }
-.radioSelectContainer > label > input:checked + span {
+.wpsc_variation_forms input:checked + span {
     border: 2px solid #000;
 }
 

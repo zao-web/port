@@ -83,20 +83,22 @@
 							<?php endif; ?>
 						<?php /** the variation group HTML and loop */?>
                         <?php if (wpsc_have_variation_groups()) { ?>
-                        <fieldset><legend><?php _e('Product Options', 'wpsc'); ?></legend>
+                        <fieldset>
 							<div class="wpsc_variation_forms">
 						    	<table>
 								<?php while (wpsc_have_variation_groups()) : wpsc_the_variation_group(); ?>
 									<tr>
 										<td class="col1">
-											<label for="<?php echo wpsc_vargrp_form_id(); ?>"><?php echo wpsc_the_vargrp_name(); ?>:</label>
+											<label for="<?php echo wpsc_vargrp_form_id(); ?>"><?php echo wpsc_the_vargrp_name(); ?></label>
 										</td>
+									</tr>
 
 										<?php /** the variation HTML and loop */?>
+									<tr>
 										<td class="col2">
 										<?php while (wpsc_have_variations()) : wpsc_the_variation(); ?>
-											<label>
-												<input type="radio" name="<?php echo wpsc_vargrp_form_id(); ?>" value="<?php echo wpsc_the_variation_name(); ?>" id="<?php echo wpsc_the_variation_id(); ?>" />
+											<label id= "label_<?php echo wpsc_the_variation_id(); ?>" for= "variation_<?php echo wpsc_the_variation_id(); ?>">
+												<input type="radio" name="<?php echo wpsc_vargrp_form_id(); ?>" value="<?php echo wpsc_the_variation_name(); ?>" id="variation_<?php echo wpsc_the_variation_id(); ?>" />
 												<span><?php echo wpsc_the_variation_name(); ?></span>
 											</label>
 										<?php endwhile; ?>
