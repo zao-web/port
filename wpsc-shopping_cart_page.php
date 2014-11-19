@@ -389,7 +389,6 @@ endif;
                      " . __('Enter your email address', 'wpsc') . "
                      </label>
                   <p class='wpsc_email_address_p'>
-                  <img src='https://secure.gravatar.com/avatar/empty?s=60&amp;d=mm' id='wpsc_checkout_gravatar' />
                   " . wpsc_checkout_form_field();
 
                    if(wpsc_the_checkout_item_error() != '')
